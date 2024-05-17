@@ -311,15 +311,18 @@ Ext.define('Ext.Template', {
                 (me.useEval ? '$=' : 'return') +
                 " function(v){return ['" + code + "'];};";
 
-                if(me.useEval){
-                    return  me.fn = me.evalCompiled(code)
-                }else{
-                    var script = document.createElement('script');
-                     script.nonce="rAnd0m";
-                    script.textContent = `Ext.customEvalFn = (function anonymous(Ext) {${code}})(Ext)`;
-                    document.body.appendChild(script);
-                    me.fn = Ext.customEvalFn;
-                }
+                // if(me.useEval){
+                //     return  me.fn = me.evalCompiled(code)
+                // }else{
+                //     var script = document.createElement('script');
+                //      script.nonce="rAnd0m";
+                    
+                //     script.textContent = `Ext.customEvalFn = (function anonymous(Ext) {${code}})(Ext)`;
+                //     document.body.appendChild(script);
+                //     me.fn = Ext.customEvalFn;
+                // }
+
+        me.fn = me.useEval ? me.evalCompiled(code) : (new Function('Ext', code))(Ext);
         me.compiled = true;
 
         return me;

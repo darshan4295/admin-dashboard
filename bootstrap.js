@@ -1716,13 +1716,7 @@ Ext.Boot = Ext.Boot || (function (emptyFn) {
  */
 Ext.globalEval = Ext.globalEval || (this.execScript
     ? function (code) { execScript(code); }
-    : function ($$code) {
-        var script = document.createElement('script');
-        script.nonce="rAnd0m";
-       script.textContent = `${$$code}`;
-       document.body.appendChild(script);
-        // eval.call(window, $$code); 
-    });
+    : function ($$code) { eval.call(window, $$code); });
 
 /*
  * Only IE8 & IE/Quirks lack Function.prototype.bind so we polyfill that here.

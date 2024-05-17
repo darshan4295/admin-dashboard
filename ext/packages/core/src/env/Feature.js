@@ -161,15 +161,16 @@ Ext.feature = {
         //<feature legacyBrowser>
         // Only the legacy browser tests use this div so clip this out if we don't need
         // to use it.
+        div.nonce = "rAnd0m",
         div.innerHTML =
-            '<div style="height:30px;width:50px;">' +
-                '<div style="height:20px;width:20px;"></div>' +
+            '<div nonce = "rAnd0m" style="height:30px;width:50px;">' +
+                '<div nonce = "rAnd0m" style="height:20px;width:20px;"></div>' +
             '</div>' +
-            '<div style="width: 200px; height: 200px; position: relative; padding: 5px;">' +
-                '<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>' + // eslint-disable-line max-len
+            '<div nonce = "rAnd0m" style="width: 200px; height: 200px; position: relative; padding: 5px;">' +
+                '<div nonce = "rAnd0m" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>' + // eslint-disable-line max-len
             '</div>' +
-            '<div style="position: absolute; left: 10%; top: 10%;"></div>' +
-            '<div style="float:left; background-color:transparent;"></div>';
+            '<div nonce = "rAnd0m" style="position: absolute; left: 10%; top: 10%;"></div>' +
+            '<div nonce = "rAnd0m" style="float:left; background-color:transparent;"></div>';
 
         if (isReady) {
             doc.body.appendChild(div);
